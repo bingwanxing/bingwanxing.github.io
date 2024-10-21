@@ -207,6 +207,144 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/18/LLM-Deployment-on-Android-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/10/18/LLM-Deployment-on-Android-2/" class="post-title-link" itemprop="url">LLM Deployment on Android--2</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2024-10-18 19:12:06" itemprop="dateCreated datePublished" datetime="2024-10-18T19:12:06+08:00">2024-10-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-10-21 19:25:39" itemprop="dateModified" datetime="2024-10-21T19:25:39+08:00">2024-10-21</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>After last week’s exploration,I got more <a target="_blank" rel="noopener" href="http://practised.So">practised.So</a> I have basically done the Deployment on Android,which should be working but got a problem.The problem is every time I open the app containing the Gemma-2-2b,the stimulater got crashed.</p>
+<p>I think it’s because the configuration of stimulater is not <a target="_blank" rel="noopener" href="http://enough.So">enough.So</a> there is two ways to solve it:1,use a real phone;2,finetune the model.</p>
+<p>I choose the latter.</p>
+<p>So the way became so clear,now my work is to use some finetune strategies to make the model works better.</p>
+<p>Firstly I tried LoRA.And I will try DV and prunning next week.(no Qutization because the model has already been 8-bit.)</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/11/LLM-Deployment-on-Android-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/10/11/LLM-Deployment-on-Android-1/" class="post-title-link" itemprop="url">LLM Deployment on Android--1</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2024-10-11 22:00:00" itemprop="dateCreated datePublished" datetime="2024-10-11T22:00:00+08:00">2024-10-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-10-21 19:11:58" itemprop="dateModified" datetime="2024-10-21T19:11:58+08:00">2024-10-21</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Tried some tutorial about how to deploy a model on Android,but I got lost.Here is the process.</p>
+<p>At first,I wanted to change the type of model to <a target="_blank" rel="noopener" href="http://TFlite.It">TFlite.It</a> is not so easy.</p>
+<p>And then,I asked a guy online for some sugggestions.He told me I can use onnx framework and so on,no need for changing the type of <a target="_blank" rel="noopener" href="http://model.So">model.So</a> I began to learn some something about onnx and tried to use it,finding the framework hard to work.</p>
+<p>Eventually,I tried to deploy some tiny models(like CV) following the tutorial online.</p>
+<p>Anyways,this week’s exploration is such a chaos.But this week’s exploration gives me a lot of exprience and it’s necessary.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
 
@@ -273,7 +411,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
