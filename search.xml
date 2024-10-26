@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>HELLO WORLD</title>
+    <url>/2024/10/10/HELLO%20WORLD/</url>
+    <content><![CDATA[<p>引言：</p>
+<p>悠古的回响寥寥，夏娃亚当偷尝禁果的欢欣仍刺激着无数人，<br>
+时间流过，我看不见神，<br>
+胸中依然感到青春的震荡，<br>
+沐浴着新生的水，<br>
+“HELLO WORLD”</p>
+<p>This blog will contain my code stuff and learning process…and maybe more.</p>
+<p>这个博客会包含我的代码相关和学习历程…也许还有别的。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>On-device LLM Deployment-2</title>
+    <url>/2024/10/18/LLM-Deployment-on-Android-2/</url>
+    <content><![CDATA[<p>After last week’s exploration,I got more <a href="http://practised.So">practised.So</a> I have basically done the Deployment on Android,which should be working but got a problem.The problem is every time I open the app containing the Gemma-2-2b,the stimulater got crashed.</p>
+<p>I think it’s because the configuration of stimulater is not <a href="http://enough.So">enough.So</a> there is two ways to solve it:1,use a real phone;2,finetune the model.</p>
+<p>I choose the latter.</p>
+<p>So the way became so clear,now my work is to use some finetune strategies to make the model works better.</p>
+<p>Firstly I tried LoRA.And I will try DV and prunning next week.(no Qutization because the model has already been 8-bit.)(now I found this idea is wrong:d.)</p>
+<p>And here’s summary of four ways to optimize LLMs:</p>
+<h2 id="quantization">Quantization</h2>
+<p><strong>Quantization</strong> minimizes the precision (number after decimal) of model parameters, leading to reduced memory usage and faster computation, which is vital for deploying LLMs on devices with limited resources.</p>
+<p>Trade-off: While quantization offers efficiency gains, a potential downside is a slight decrease in model accuracy. The impact on accuracy can vary depending on the specific technique and the task at hand.</p>
+<h2 id="knowledge-distillation">Knowledge Distillation</h2>
+<p>This involves training a smaller “student” model to replicate the performance of a larger “teacher” model. The student model learns to mimic the outputs of the teacher model, achieving similar results with fewer parameters.</p>
+<h2 id="pruning">Pruning</h2>
+<p><strong>Pruning</strong> involves removing parts of a model (such as neurons or entire layers) that contribute little to the output, effectively reducing the model size and improving computational efficiency without significantly affecting accuracy.</p>
+<h2 id="tuning">Tuning</h2>
+<p><strong>Finetuning</strong> involves adapting pre-trained models to specific tasks, enhancing their effectiveness without expansive retraining:<br>
+Trade-off: It risks overfitting, where the model performs well on training data but poorly on unseen data.</p>
+<p><strong>Last Layer Tuning</strong> adjusts the final layer of the model, optimizing it for tasks closely related to the original training. The trade off is, that it might not capture complex patterns as that require deeper model adjustments.</p>
+<p><strong>Adapter Layer Tuning</strong> integrates trainable modules between layers, tailoring the model’s output. As it adds extra parameters to the model, which can increase the computational load.</p>
+<p><strong>Prefix Tuning</strong> adds tunable parameters at the input sequence start, directing the model’s focus. Trade off is that it requires careful design of the prefix layer to avoid introducing biases.</p>
+<p><strong>Low Rank Adaptation (LoRA)</strong> employs low-rank matrices for efficient weight adaptation.<br>
+potentially impacting the model’s adaptability to highly complex tasks. Trade off is, potentially impacting the model’s adaptability to highly complex tasks.</p>
+<blockquote>
+<p><em>我觉得神还缺少某些某些东西，只要不存在与之相对的东西。————吕西安</em></p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>SClog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>On-device LLM Deployment-1</title>
+    <url>/2024/10/11/LLM-Deployment-on-Android-1/</url>
+    <content><![CDATA[<p>Tried some tutorial about how to deploy a model on Android,but I got lost.Here is the process.</p>
+<p>At first,I wanted to change the type of model to <a href="http://TFlite.It">TFlite.It</a> is not so easy.</p>
+<p>And then,I asked a guy online for some sugggestions.He told me I can use onnx framework and so on,no need for changing the type of <a href="http://model.So">model.So</a> I began to learn some something about onnx and tried to use it,finding the framework hard to work.</p>
+<p>Eventually,I tried to deploy some tiny models(like CV) following the tutorial online.</p>
+<p>Anyways,this week’s exploration is such a chaos.But this week’s exploration gives me a lot of exprience and it’s necessary.</p>
+<blockquote>
+<p><em>没有生活的的绝望就没有对生活的爱。————加谬</em></p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>SClog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>On-device LLM Deployment-3</title>
+    <url>/2024/10/26/on-device-LLM-deployment-3/</url>
+    <content><![CDATA[<p>This week focus on paper reading and basic knowledge learning.</p>
+<p>First,I summarised the difference of QAT and PTQ.</p>
+<h2 id="quantization-aware-training (qat) core method">Quantization-Aware Training (QAT) Core Method</h2>
+<p>Simulated Quantization During Training,Full Model Fine-Tuning,Quantizing Weights and Activations.</p>
+<h2 id="post-training-quantization (ptq) core method">Post-Training Quantization (PTQ) Core Method</h2>
+<p>Quantization After Training,Static Quantization,Dynamic Quantization.</p>
+<p>Here is a chart about comparison of them.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Feature</strong></th>
+<th><strong>Quantization-Aware Training(QAT)</strong></th>
+<th><strong>Post-Training Quantization (PTQ)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Training</td>
+<td>Requires retraining with quantization</td>
+<td>No retraining needed, applied aftertraining</td>
+</tr>
+<tr>
+<td>Use Case</td>
+<td>Best for high-precision tasks on resource.constrained devices</td>
+<td>Fast deployment, suited for simplerquantization tasks</td>
+</tr>
+<tr>
+<td>Accuracy Loss</td>
+<td>Minimal, close to floating-point accuracy</td>
+<td>Potential for higher accuracy loss</td>
+</tr>
+<tr>
+<td>Efficiency Gains</td>
+<td>High efficiency on low-precision hardware</td>
+<td>Also boosts efficiency, but lessoptimal for some models</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Higher complexity due to simulatedquantization during training</td>
+<td>Simpler implementation</td>
+</tr>
+</tbody>
+</table>
+<p>Secondly,I go over knowledge of transfomer,whose note is on the goodnotes.</p>
+<blockquote>
+<p><em>我总感觉像生活在大海上，受到威胁，然而心中存有巨大的幸福。————加谬</em></p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>SClog</tag>
+      </tags>
+  </entry>
+</search>
