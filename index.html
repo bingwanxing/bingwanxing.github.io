@@ -148,6 +148,215 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/26/on-device-LLM-deployment-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bingwanxing">
+      <meta itemprop="description" content="Computer sceince and Phylosiphy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bingwanxing's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/10/26/on-device-LLM-deployment-3/" class="post-title-link" itemprop="url">on-device LLM deployment-3</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-10-26 17:26:50 / Modified: 19:17:00" itemprop="dateCreated datePublished" datetime="2024-10-26T17:26:50+08:00">2024-10-26</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>This week focus on paper reading and basic knowledge learning.</p>
+<p>First,I summarised the difference of QAT and PTQ.</p>
+<p>##Quantization-Aware Training (QAT) Core Method##</p>
+<p>Simulated Quantization During Training,Full Model Fine-Tuning,Quantizing Weights and Activations.</p>
+<p>##Post-Training Quantization (PTQ) Core Method##</p>
+<p>Quantization After Training,Static Quantization,Dynamic Quantization.</p>
+<p>Here is a chart about comparison of them.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Feature</strong></th>
+<th><strong>Quantization-Aware Training(QAT)</strong></th>
+<th><strong>Post-Training Quantization (PTQ)</strong></th>
+<th>****</th>
+<th>****</th>
+<th>****</th>
+<th>****</th>
+<th>****</th>
+<th>****</th>
+<th>****</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Training</td>
+<td>Requires retraining with quantization</td>
+<td>No retraining needed, applied aftertraining</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Use Case</td>
+<td>Best for high-precision tasks on resource.constrained devices</td>
+<td>Fast deployment, suited for simplerquantization tasks</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Accuracy Loss</td>
+<td>Minimal, close to floating-point accuracy</td>
+<td>Potential for higher accuracy loss</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Efficiency Gains</td>
+<td>High efficiency on low-precision hardware</td>
+<td>Also boosts efficiency, but lessoptimal for some models</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Higher complexity due to simulatedquantization during training</td>
+<td>Simpler implementation</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Secondly,I go over knowledge of transfomer,whose note is on the goodnotes.</p>
+<blockquote>
+<p><em>我总感觉像生活在大海上，受到威胁，然而心中存有巨大的幸福。————加谬</em></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/18/LLM-Deployment-on-Android-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -162,7 +371,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/10/18/LLM-Deployment-on-Android-2/" class="post-title-link" itemprop="url">LLM Deployment on Android--2</a>
+            <a href="/2024/10/18/LLM-Deployment-on-Android-2/" class="post-title-link" itemprop="url">on-device LLM deployment-2</a>
         </h2>
 
         <div class="post-meta">
@@ -179,7 +388,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-10-21 19:25:39" itemprop="dateModified" datetime="2024-10-21T19:25:39+08:00">2024-10-21</time>
+                <time title="Modified: 2024-10-26 19:00:51" itemprop="dateModified" datetime="2024-10-26T19:00:51+08:00">2024-10-26</time>
               </span>
 
           <br>
@@ -188,14 +397,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span></span>
+              <span>558</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>NaN:aN</span>
+              <span>1 mins.</span>
             </span>
 
         </div>
@@ -212,6 +421,9 @@
 <p>I choose the latter.</p>
 <p>So the way became so clear,now my work is to use some finetune strategies to make the model works better.</p>
 <p>Firstly I tried LoRA.And I will try DV and prunning next week.(no Qutization because the model has already been 8-bit.)</p>
+<blockquote>
+<p><em>我觉得神还缺少某些某些东西，只要不存在与之相对的东西。————吕西安</em></p>
+</blockquote>
 
       
     </div>
@@ -245,7 +457,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/10/11/LLM-Deployment-on-Android-1/" class="post-title-link" itemprop="url">LLM Deployment on Android--1</a>
+            <a href="/2024/10/11/LLM-Deployment-on-Android-1/" class="post-title-link" itemprop="url">on-device LLM deployment-1</a>
         </h2>
 
         <div class="post-meta">
@@ -262,7 +474,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-10-21 19:11:58" itemprop="dateModified" datetime="2024-10-21T19:11:58+08:00">2024-10-21</time>
+                <time title="Modified: 2024-10-26 19:15:25" itemprop="dateModified" datetime="2024-10-26T19:15:25+08:00">2024-10-26</time>
               </span>
 
           <br>
@@ -271,14 +483,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span></span>
+              <span>2.3k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>NaN:aN</span>
+              <span>4 mins.</span>
             </span>
 
         </div>
@@ -295,6 +507,25 @@
 <p>And then,I asked a guy online for some sugggestions.He told me I can use onnx framework and so on,no need for changing the type of <a target="_blank" rel="noopener" href="http://model.So">model.So</a> I began to learn some something about onnx and tried to use it,finding the framework hard to work.</p>
 <p>Eventually,I tried to deploy some tiny models(like CV) following the tutorial online.</p>
 <p>Anyways,this week’s exploration is such a chaos.But this week’s exploration gives me a lot of exprience and it’s necessary.</p>
+<p>and here’s summary of four ways to optimize LLMs:</p>
+<p>##Quantization<br>
+<strong>Quantization</strong> minimizes the precision (number after decimal) of model parameters, leading to reduced memory usage and faster computation, which is vital for deploying LLMs on devices with limited resources.</p>
+<p>Trade-off: While quantization offers efficiency gains, a potential downside is a slight decrease in model accuracy. The impact on accuracy can vary depending on the specific technique and the task at hand.</p>
+<p>##Knowledge Distillation</p>
+<p>This involves training a smaller “student” model to replicate the performance of a larger “teacher” model. The student model learns to mimic the outputs of the teacher model, achieving similar results with fewer parameters.</p>
+<p>##Pruning</p>
+<p><strong>Pruning</strong> involves removing parts of a model (such as neurons or entire layers) that contribute little to the output, effectively reducing the model size and improving computational efficiency without significantly affecting accuracy.</p>
+<p>##Tuning<br>
+<strong>Finetuning</strong> involves adapting pre-trained models to specific tasks, enhancing their effectiveness without expansive retraining:<br>
+Trade-off: It risks overfitting, where the model performs well on training data but poorly on unseen data.</p>
+<p><strong>Last Layer Tuning</strong> adjusts the final layer of the model, optimizing it for tasks closely related to the original training. The trade off is, that it might not capture complex patterns as that require deeper model adjustments.</p>
+<p><strong>Adapter Layer Tuning</strong> integrates trainable modules between layers, tailoring the model’s output. As it adds extra parameters to the model, which can increase the computational load.</p>
+<p><strong>Prefix Tuning</strong> adds tunable parameters at the input sequence start, directing the model’s focus. Trade off is that it requires careful design of the prefix layer to avoid introducing biases.</p>
+<p><strong>Low Rank Adaptation (LoRA)</strong> employs low-rank matrices for efficient weight adaptation.<br>
+potentially impacting the model’s adaptability to highly complex tasks. Trade off is, potentially impacting the model’s adaptability to highly complex tasks.</p>
+<blockquote>
+<p><em>没有生活的的绝望就没有对生活的爱。————加谬</em></p>
+</blockquote>
 
       
     </div>
@@ -462,7 +693,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -499,17 +730,37 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">NaNm</span>
+    <span title="Symbols count total">4k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">NaN:aN</span>
+    <span title="Reading time total">7 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
