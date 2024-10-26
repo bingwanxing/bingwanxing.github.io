@@ -46,22 +46,6 @@ potentially impacting the model’s adaptability to highly complex tasks. Trade 
       </tags>
   </entry>
   <entry>
-    <title>On-device LLM Deployment-1</title>
-    <url>/2024/10/11/LLM-Deployment-on-Android-1/</url>
-    <content><![CDATA[<p>Tried some tutorial about how to deploy a model on Android,but I got lost.Here is the process.</p>
-<p>At first,I wanted to change the type of model to <a href="http://TFlite.It">TFlite.It</a> is not so easy.</p>
-<p>And then,I asked a guy online for some sugggestions.He told me I can use onnx framework and so on,no need for changing the type of <a href="http://model.So">model.So</a> I began to learn some something about onnx and tried to use it,finding the framework hard to work.</p>
-<p>Eventually,I tried to deploy some tiny models(like CV) following the tutorial online.</p>
-<p>Anyways,this week’s exploration is such a chaos.But this week’s exploration gives me a lot of exprience and it’s necessary.</p>
-<blockquote>
-<p><em>没有生活的的绝望就没有对生活的爱。————加谬</em></p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>SClog</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>On-device LLM Deployment-3</title>
     <url>/2024/10/26/on-device-LLM-deployment-3/</url>
     <content><![CDATA[<p>This week focus on paper reading and basic knowledge learning.</p>
@@ -110,6 +94,22 @@ potentially impacting the model’s adaptability to highly complex tasks. Trade 
 <p>Secondly,I go over knowledge of transfomer,whose note is on the goodnotes.</p>
 <blockquote>
 <p><em>我总感觉像生活在大海上，受到威胁，然而心中存有巨大的幸福。————加谬</em></p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>SClog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>On-device LLM Deployment-1</title>
+    <url>/2024/10/11/LLM-Deployment-on-Android-1/</url>
+    <content><![CDATA[<p>Tried some tutorial about how to deploy a model on Android,but I got lost.Here is the process.</p>
+<p>At first,I wanted to change the type of model to <a href="http://TFlite.It">TFlite.It</a> is not so easy.</p>
+<p>And then,I asked a guy online for some sugggestions.He told me I can use onnx framework and so on,no need for changing the type of <a href="http://model.So">model.So</a> I began to learn some something about onnx and tried to use it,finding the framework hard to work.</p>
+<p>Eventually,I tried to deploy some tiny models(like CV) following the tutorial online.</p>
+<p>Anyways,this week’s exploration is such a chaos.But this week’s exploration gives me a lot of exprience and it’s necessary.</p>
+<blockquote>
+<p><em>没有生活的的绝望就没有对生活的爱。————加谬</em></p>
 </blockquote>
 ]]></content>
       <tags>
