@@ -116,4 +116,54 @@ potentially impacting the model’s adaptability to highly complex tasks. Trade 
         <tag>SClog</tag>
       </tags>
   </entry>
+  <entry>
+    <title>&#39;The-first-kaggle-experience&#39;</title>
+    <url>/2025/02/26/The-first-kaggle-experience/</url>
+    <content><![CDATA[<h2 id="data-process">Data Process</h2>
+<p>1.after checking the data file,I found that the keyword and location column is NaN.Therefore,I fill “unkown” to replace NaN.<br>
+‘’‘python<br>
+data_train[‘keyword’] = data_train[‘keyword’].fillna(‘uknown_keyword’)<br>
+data_train[‘location’] = data_train[‘location’].fillna(‘uknown_location’)<br>
+‘’’<br>
+2.I use Pandas to combine the keyword,location,and text columns of each row in the dataset into a single string,and stores these strings in a list.<br>
+‘’‘python<br>
+corpus = data_train.apply(lambda row:f&quot;keyword:{row[‘keyword’]} | location:{row[‘location’]} | text: {row[‘text’]}&quot;,axis=1).tolist()<br>
+‘’’<br>
+3.I use BertTokenizer to tokenize and preprocessing the list.<br>
+‘’‘python<br>
+tokenizer = BertTokenizer.from_pretrained(‘bert-base-uncased’)<br>
+X_bert=tokenizer(<br>
+corpus,<br>
+padding=True,<br>
+truncation=True,<br>
+return_tensors=‘tf’<br>
+)<br>
+‘’’</p>
+<p>4.I use TensorFlow Dataset to transform the X.Bert to a dataset used in BERT.<br>
+‘’‘python<br>
+dataset = tf.data.Dataset.from_tensor_slices((<br>
+{“input_ids”: input_ids, “attention_mask”: attention_mask},<br>
+y<br>
+)).batch(32)<br>
+‘’’</p>
+<h2 id="model-train">Model Train</h2>
+<p>I choose BERT and set<br>
+‘’‘python<br>
+optimizer=‘adam’, loss=‘binary_crossentropy’, metrics=[‘accuracy’]<br>
+‘’’<br>
+<strong>Why?</strong></p>
+<p>This chanllenge is a classification problem,and BERT has these suitable features:<br>
+1.Superior Understanding of Context from Both Directions;<br>
+2.Effectiveness in Pre-training and Fine-tuning;<br>
+3.Deep Contextual Analysis;<br>
+4.Versatility Across Multiple Tasks</p>
+<h2 id="limitation">Limitation</h2>
+<p>1.Long Training Time:I only trained for 3 epochs,but it took 12719.4s.<br>
+2.Not so superior performance:the final score is only 0.57033:Perhaps this is because BERT may not be as effective as traditional machine learning models (e.g., Naive Bayes) or shallow neural networks (e.g., CNNs) for some simple text classification tasks, such as short text classification or binary classification problems, and they also have advantages in terms of computing resources and training time.</p>
+<h2 id="to-do">TO DO</h2>
+<p>1.Increase the train epochs;<br>
+2.Try other models or methods;<br>
+3.Add error blog.</p>
+]]></content>
+  </entry>
 </search>

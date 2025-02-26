@@ -181,6 +181,123 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/26/The-first-kaggle-experience/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bingwanxing">
+      <meta itemprop="description" content="Computer Sceince and Phylosiphy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bingwanxing's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/02/26/The-first-kaggle-experience/" class="post-title-link" itemprop="url">'The-first-kaggle-experience'</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-02-26 15:45:20 / Modified: 16:02:18" itemprop="dateCreated datePublished" datetime="2025-02-26T15:45:20+08:00">2025-02-26</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="data-process">Data Process</h2>
+<p>1.after checking the data file,I found that the keyword and location column is NaN.Therefore,I fill “unkown” to replace NaN.<br>
+‘’‘python<br>
+data_train[‘keyword’] = data_train[‘keyword’].fillna(‘uknown_keyword’)<br>
+data_train[‘location’] = data_train[‘location’].fillna(‘uknown_location’)<br>
+‘’’<br>
+2.I use Pandas to combine the keyword,location,and text columns of each row in the dataset into a single string,and stores these strings in a list.<br>
+‘’‘python<br>
+corpus = data_train.apply(lambda row:f&quot;keyword:{row[‘keyword’]} | location:{row[‘location’]} | text: {row[‘text’]}&quot;,axis=1).tolist()<br>
+‘’’<br>
+3.I use BertTokenizer to tokenize and preprocessing the list.<br>
+‘’‘python<br>
+tokenizer = BertTokenizer.from_pretrained(‘bert-base-uncased’)<br>
+X_bert=tokenizer(<br>
+corpus,<br>
+padding=True,<br>
+truncation=True,<br>
+return_tensors=‘tf’<br>
+)<br>
+‘’’</p>
+<p>4.I use TensorFlow Dataset to transform the X.Bert to a dataset used in BERT.<br>
+‘’‘python<br>
+dataset = tf.data.Dataset.from_tensor_slices((<br>
+{“input_ids”: input_ids, “attention_mask”: attention_mask},<br>
+y<br>
+)).batch(32)<br>
+‘’’</p>
+<h2 id="model-train">Model Train</h2>
+<p>I choose BERT and set<br>
+‘’‘python<br>
+optimizer=‘adam’, loss=‘binary_crossentropy’, metrics=[‘accuracy’]<br>
+‘’’<br>
+<strong>Why?</strong></p>
+<p>This chanllenge is a classification problem,and BERT has these suitable features:<br>
+1.Superior Understanding of Context from Both Directions;<br>
+2.Effectiveness in Pre-training and Fine-tuning;<br>
+3.Deep Contextual Analysis;<br>
+4.Versatility Across Multiple Tasks</p>
+<h2 id="limitation">Limitation</h2>
+<p>1.Long Training Time:I only trained for 3 epochs,but it took 12719.4s.<br>
+2.Not so superior performance:the final score is only 0.57033:Perhaps this is because BERT may not be as effective as traditional machine learning models (e.g., Naive Bayes) or shallow neural networks (e.g., CNNs) for some simple text classification tasks, such as short text classification or binary classification problems, and they also have advantages in terms of computing resources and training time.</p>
+<h2 id="to-do">TO DO</h2>
+<p>1.Increase the train epochs;<br>
+2.Try other models or methods;<br>
+3.Add error blog.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/26/on-device-LLM-deployment-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -636,7 +753,7 @@ potentially impacting the model’s adaptability to highly complex tasks. Trade 
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -668,7 +785,7 @@ potentially impacting the model’s adaptability to highly complex tasks. Trade 
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -677,12 +794,12 @@ potentially impacting the model’s adaptability to highly complex tasks. Trade 
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">4k</span>
+    <span title="Symbols count total">6k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">7 mins.</span>
+    <span title="Reading time total">10 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
