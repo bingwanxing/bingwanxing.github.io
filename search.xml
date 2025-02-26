@@ -120,38 +120,33 @@ potentially impacting the model’s adaptability to highly complex tasks. Trade 
     <title>&#39;The-first-kaggle-experience&#39;</title>
     <url>/2025/02/26/The-first-kaggle-experience/</url>
     <content><![CDATA[<h2 id="data-process">Data Process</h2>
-<p>1.after checking the data file,I found that the keyword and location column is NaN.Therefore,I fill “unkown” to replace NaN.<br>
-‘’‘python<br>
-data_train[‘keyword’] = data_train[‘keyword’].fillna(‘uknown_keyword’)<br>
-data_train[‘location’] = data_train[‘location’].fillna(‘uknown_location’)<br>
-‘’’<br>
-2.I use Pandas to combine the keyword,location,and text columns of each row in the dataset into a single string,and stores these strings in a list.<br>
-‘’‘python<br>
-corpus = data_train.apply(lambda row:f&quot;keyword:{row[‘keyword’]} | location:{row[‘location’]} | text: {row[‘text’]}&quot;,axis=1).tolist()<br>
-‘’’<br>
-3.I use BertTokenizer to tokenize and preprocessing the list.<br>
-‘’‘python<br>
-tokenizer = BertTokenizer.from_pretrained(‘bert-base-uncased’)<br>
-X_bert=tokenizer(<br>
-corpus,<br>
-padding=True,<br>
-truncation=True,<br>
-return_tensors=‘tf’<br>
-)<br>
-‘’’</p>
-<p>4.I use TensorFlow Dataset to transform the X.Bert to a dataset used in BERT.<br>
-‘’‘python<br>
-dataset = tf.data.Dataset.from_tensor_slices((<br>
-{“input_ids”: input_ids, “attention_mask”: attention_mask},<br>
-y<br>
-)).batch(32)<br>
-‘’’</p>
+<p>1.after checking the data file,I found that the keyword and location column is NaN.Therefore,I fill “unkown” to replace NaN.</p>
+<div class="highlight"><pre class="code"><code>data_train[<span class="hljs-string">&#x27;keyword&#x27;</span>] = data_train[<span class="hljs-string">&#x27;keyword&#x27;</span>].fillna(<span class="hljs-string">&#x27;uknown_keyword&#x27;</span>)
+data_train[<span class="hljs-string">&#x27;location&#x27;</span>] = data_train[<span class="hljs-string">&#x27;location&#x27;</span>].fillna(<span class="hljs-string">&#x27;uknown_location&#x27;</span>)
+</code></pre></div>
+<p>2.I use Pandas to combine the keyword,location,and text columns of each row in the dataset into a single string,and stores these strings in a list.</p>
+<div class="highlight"><pre class="code"><code>corpus = data_train.apply(<span class="hljs-keyword">lambda</span> row:<span class="hljs-string">f&quot;keyword:<span class="hljs-subst">&#123;row[<span class="hljs-string">&#x27;keyword&#x27;</span>]&#125;</span> | location:<span class="hljs-subst">&#123;row[<span class="hljs-string">&#x27;location&#x27;</span>]&#125;</span> | text: <span class="hljs-subst">&#123;row[<span class="hljs-string">&#x27;text&#x27;</span>]&#125;</span>&quot;</span>,axis=<span class="hljs-number">1</span>).tolist()
+</code></pre></div>
+<p>3.I use BertTokenizer to tokenize and preprocessing the list.</p>
+<div class="highlight"><pre class="code"><code>tokenizer = BertTokenizer.from_pretrained(<span class="hljs-string">&#x27;bert-base-uncased&#x27;</span>)
+X_bert=tokenizer(
+    corpus,
+    padding=<span class="hljs-literal">True</span>,
+    truncation=<span class="hljs-literal">True</span>,
+    return_tensors=<span class="hljs-string">&#x27;tf&#x27;</span>
+)
+</code></pre></div>
+<p>4.I use TensorFlow Dataset to transform the X.Bert to a dataset used in BERT.</p>
+<div class="highlight"><pre class="code"><code>dataset = tf.data.Dataset.from_tensor_slices((
+    &#123;<span class="hljs-string">&quot;input_ids&quot;</span>: input_ids, <span class="hljs-string">&quot;attention_mask&quot;</span>: attention_mask&#125;,
+    y
+)).batch(<span class="hljs-number">32</span>)
+</code></pre></div>
 <h2 id="model-train">Model Train</h2>
-<p>I choose BERT and set<br>
-‘’‘python<br>
-optimizer=‘adam’, loss=‘binary_crossentropy’, metrics=[‘accuracy’]<br>
-‘’’<br>
-<strong>Why?</strong></p>
+<p>I choose BERT and set</p>
+<div class="highlight"><pre class="code"><code>optimizer=<span class="hljs-string">&#x27;adam&#x27;</span>, loss=<span class="hljs-string">&#x27;binary_crossentropy&#x27;</span>, metrics=[<span class="hljs-string">&#x27;accuracy&#x27;</span>]
+</code></pre></div>
+<p><strong>Why?</strong></p>
 <p>This chanllenge is a classification problem,and BERT has these suitable features:<br>
 1.Superior Understanding of Context from Both Directions;<br>
 2.Effectiveness in Pre-training and Fine-tuning;<br>
