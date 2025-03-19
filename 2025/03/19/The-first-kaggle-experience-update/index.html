@@ -22,17 +22,17 @@
 
   <meta name="description" content="Data Process 1.after checking the data file,I found that the keyword and location column is NaN.Therefore,I fill “unkown” to replace NaN. data_train[&#x27;keyword&#x27;] &#x3D; data_train[&#x27;keyword&amp;#x2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="&#39;The-first-kaggle-experience&#39;">
-<meta property="og:url" content="http://example.com/2025/02/26/The-first-kaggle-experience/index.html">
+<meta property="og:title" content="The-first-kaggle-experience-update">
+<meta property="og:url" content="http://example.com/2025/03/19/The-first-kaggle-experience-update/index.html">
 <meta property="og:site_name" content="Bingwanxing&#39;s Blog">
 <meta property="og:description" content="Data Process 1.after checking the data file,I found that the keyword and location column is NaN.Therefore,I fill “unkown” to replace NaN. data_train[&#x27;keyword&#x27;] &#x3D; data_train[&#x27;keyword&amp;#x2">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-02-26T07:45:20.000Z">
-<meta property="article:modified_time" content="2025-02-26T08:09:13.592Z">
+<meta property="article:published_time" content="2025-03-19T07:54:58.000Z">
+<meta property="article:modified_time" content="2025-03-19T12:26:15.141Z">
 <meta property="article:author" content="Bingwanxing">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2025/02/26/The-first-kaggle-experience/">
+<link rel="canonical" href="http://example.com/2025/03/19/The-first-kaggle-experience-update/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>'The-first-kaggle-experience' | Bingwanxing's Blog</title>
+  <title>The-first-kaggle-experience-update | Bingwanxing's Blog</title>
   
 
 
@@ -184,7 +184,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/26/The-first-kaggle-experience/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/19/The-first-kaggle-experience-update/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -197,7 +197,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          'The-first-kaggle-experience'
+          The-first-kaggle-experience-update
         </h1>
 
         <div class="post-meta">
@@ -208,7 +208,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2025-02-26 15:45:20 / Modified: 16:09:13" itemprop="dateCreated datePublished" datetime="2025-02-26T15:45:20+08:00">2025-02-26</time>
+              <time title="Created: 2025-03-19 15:54:58 / Modified: 20:26:15" itemprop="dateCreated datePublished" datetime="2025-03-19T15:54:58+08:00">2025-03-19</time>
             </span>
 
           
@@ -224,14 +224,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.9k</span>
+              <span>5.2k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>3 mins.</span>
+              <span>9 mins.</span>
             </span>
 
         </div>
@@ -252,33 +252,207 @@ data_train[<span class="hljs-string">&#x27;location&#x27;</span>] = data_train[<
 <div class="highlight"><pre class="code"><code>corpus = data_train.apply(<span class="hljs-keyword">lambda</span> row:<span class="hljs-string">f&quot;keyword:<span class="hljs-subst">&#123;row[<span class="hljs-string">&#x27;keyword&#x27;</span>]&#125;</span> | location:<span class="hljs-subst">&#123;row[<span class="hljs-string">&#x27;location&#x27;</span>]&#125;</span> | text: <span class="hljs-subst">&#123;row[<span class="hljs-string">&#x27;text&#x27;</span>]&#125;</span>&quot;</span>,axis=<span class="hljs-number">1</span>).tolist()
 </code></pre></div>
 <p>3.I use BertTokenizer to tokenize and preprocessing the list.</p>
-<div class="highlight"><pre class="code"><code>tokenizer = BertTokenizer.from_pretrained(<span class="hljs-string">&#x27;bert-base-uncased&#x27;</span>)
-X_bert=tokenizer(
-    corpus,
-    padding=<span class="hljs-literal">True</span>,
-    truncation=<span class="hljs-literal">True</span>,
-    return_tensors=<span class="hljs-string">&#x27;tf&#x27;</span>
-)
+<div class="highlight"><pre class="code"><code>max_len = <span class="hljs-number">0</span>
+<span class="hljs-keyword">for</span> sent <span class="hljs-keyword">in</span> corpus:
+    <span class="hljs-comment"># 将文本分词，并添加 `[CLS]` 和 `[SEP]` 符号</span>
+    input_ids = tokenizer.encode(sent, add_special_tokens=<span class="hljs-literal">True</span>)
+    max_len = <span class="hljs-built_in">max</span>(max_len, <span class="hljs-built_in">len</span>(input_ids))
+    
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Max sentence length: &#x27;</span>, max_len)
+
+max_len = <span class="hljs-number">0</span>
+<span class="hljs-keyword">for</span> sent <span class="hljs-keyword">in</span> corpuss:
+    input_ids = tokenizer.encode(sent, add_special_tokens=<span class="hljs-literal">True</span>)
+    max_len = <span class="hljs-built_in">max</span>(max_len, <span class="hljs-built_in">len</span>(input_ids))
+    
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Max sentence length: &#x27;</span>, max_len)
+
+input_ids = []
+attention_masks = []
+
+<span class="hljs-keyword">for</span> sent <span class="hljs-keyword">in</span> corpus:
+    X_bert = tokenizer.encode_plus(
+        sent,
+        add_special_tokens = <span class="hljs-literal">True</span>,
+        max_length = <span class="hljs-number">128</span>,
+        pad_to_max_length = <span class="hljs-literal">True</span>,
+        return_attention_mask = <span class="hljs-literal">True</span>,
+        return_tensors = <span class="hljs-string">&#x27;pt&#x27;</span>,
+    )
+    input_ids.append(X_bert[<span class="hljs-string">&#x27;input_ids&#x27;</span>])
+    attention_masks.append(X_bert[<span class="hljs-string">&#x27;attention_mask&#x27;</span>])
+
+input_ids = torch.cat(input_ids,dim=<span class="hljs-number">0</span>)
+attention_masks = torch.cat(attention_masks,dim=<span class="hljs-number">0</span>)
+labels = torch.tensor(y, dtype=torch.long)
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Original: &#x27;</span>, corpus[<span class="hljs-number">0</span>])
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Token IDs:&#x27;</span>, input_ids[<span class="hljs-number">0</span>])
+
+input_idss = []
+attention_maskss = []
+
+<span class="hljs-keyword">for</span> sent <span class="hljs-keyword">in</span> corpuss:
+    encoded_dicts = tokenizer.encode_plus(
+                        sent,                      
+                        add_special_tokens = <span class="hljs-literal">True</span>, 
+                        max_length = <span class="hljs-number">128</span>,           
+                        pad_to_max_length = <span class="hljs-literal">True</span>,
+                        return_attention_mask = <span class="hljs-literal">True</span>,   
+                        return_tensors = <span class="hljs-string">&#x27;pt&#x27;</span>,     
+                   )
+    input_idss.append(encoded_dicts[<span class="hljs-string">&#x27;input_ids&#x27;</span>])
+    attention_maskss.append(encoded_dicts[<span class="hljs-string">&#x27;attention_mask&#x27;</span>])
+
+input_idss = torch.cat(input_idss, dim=<span class="hljs-number">0</span>)
+attention_maskss = torch.cat(attention_maskss, dim=<span class="hljs-number">0</span>)
 </code></pre></div>
-<p>4.I use TensorFlow Dataset to transform the X.Bert to a dataset used in BERT.</p>
-<div class="highlight"><pre class="code"><code>dataset = tf.data.Dataset.from_tensor_slices((
-    &#123;<span class="hljs-string">&quot;input_ids&quot;</span>: input_ids, <span class="hljs-string">&quot;attention_mask&quot;</span>: attention_mask&#125;,
-    y
-)).batch(<span class="hljs-number">32</span>)
+<p>4.I use pytorch Dataset to transform the tokenized corpus and corpuss to a dataset used in BERT.</p>
+<div class="highlight"><pre class="code"><code><span class="hljs-keyword">from</span> torch.utils.data <span class="hljs-keyword">import</span> TensorDataset
+
+dataset = TensorDataset(input_ids, attention_masks, labels)
+datasets = TensorDataset(input_idss, attention_maskss)<span class="hljs-comment">#dataset for test doesn&#x27;t include labels</span>
 </code></pre></div>
 <h2 id="model-train">Model Train</h2>
 <p>I choose BERT and set</p>
-<div class="highlight"><pre class="code"><code>optimizer=<span class="hljs-string">&#x27;adam&#x27;</span>, loss=<span class="hljs-string">&#x27;binary_crossentropy&#x27;</span>, metrics=[<span class="hljs-string">&#x27;accuracy&#x27;</span>]
+<div class="highlight"><pre class="code"><code>optimizer = AdamW(model.parameters(),
+                 lr = <span class="hljs-number">2e-5</span>,
+                 eps = <span class="hljs-number">1e-8</span>
+                 )
+
+<span class="hljs-keyword">from</span> transformers <span class="hljs-keyword">import</span> get_linear_schedule_with_warmup
+
+epochs = <span class="hljs-number">2</span>
+
+total_steps = <span class="hljs-built_in">len</span>(train_dataloader) * epochs
+
+scheduler = get_linear_schedule_with_warmup(optimizer,
+                                           num_warmup_steps = <span class="hljs-number">0</span>,
+                                           num_training_steps = total_steps)
+</code></pre></div>
+<p>Then,I conduct training in small batches</p>
+<div class="highlight"><pre class="code"><code>device = torch.device(<span class="hljs-string">&#x27;cuda&#x27;</span> <span class="hljs-keyword">if</span> torch.cuda.is_available() <span class="hljs-keyword">else</span> <span class="hljs-string">&#x27;cpu&#x27;</span>)
+
+seed_val = <span class="hljs-number">42</span>
+
+random.seed(seed_val)
+np.random.seed(seed_val)
+torch.manual_seed(seed_val)
+torch.cuda.manual_seed_all(seed_val)
+
+<span class="hljs-comment"># 存储训练和评估的 loss、准确率、训练时长等统计指标, </span>
+training_stats = []
+
+total_t0 = time.time()
+
+<span class="hljs-keyword">for</span> epoch_i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, epochs):
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;======== Epoch &#123;:&#125; / &#123;:&#125; ========&#x27;</span>.<span class="hljs-built_in">format</span>(epoch_i + <span class="hljs-number">1</span>, epochs))
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Training...&#x27;</span>)
+
+    <span class="hljs-comment"># 统计单次 epoch 的训练时间</span>
+    t0 = time.time()
+
+    <span class="hljs-comment"># 重置每次 epoch 的训练总 loss</span>
+    total_train_loss = <span class="hljs-number">0</span>
+
+    <span class="hljs-comment"># 将模型设置为训练模式。这里并不是调用训练接口的意思</span>
+    model.train()
+
+    <span class="hljs-comment"># 训练集小批量迭代</span>
+    <span class="hljs-keyword">for</span> step, batch <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(train_dataloader):
+
+        <span class="hljs-comment"># 每经过40次迭代，就输出进度信息</span>
+        <span class="hljs-keyword">if</span> step % <span class="hljs-number">40</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> step == <span class="hljs-number">0</span>:
+            elapsed = format_time(time.time() - t0)
+            <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;  Batch &#123;:&gt;5,&#125;  of  &#123;:&gt;5,&#125;.    Elapsed: &#123;:&#125;.&#x27;</span>.<span class="hljs-built_in">format</span>(step, <span class="hljs-built_in">len</span>(train_dataloader), elapsed))
+
+        b_input_ids = batch[<span class="hljs-number">0</span>].to(device)
+        b_input_mask = batch[<span class="hljs-number">1</span>].to(device)
+        b_labels = batch[<span class="hljs-number">2</span>].to(device)
+        <span class="hljs-comment"># print(b_input_ids.shape)  # 应为 (batch_size, max_length)</span>
+        <span class="hljs-comment"># print(b_input_mask.shape) # 同上</span>
+        <span class="hljs-comment"># print(b_labels.shape)     # 应为 (batch_size,)</span>
+
+        model.zero_grad()<span class="hljs-comment">#每次计算梯度前将其清零，因为pytorch梯度是累加的</span>
+    
+        <span class="hljs-comment">#前向</span>
+        <span class="hljs-comment"># loss, logits = model(b_input_ids, </span>
+        <span class="hljs-comment">#                          token_type_ids=None, </span>
+        <span class="hljs-comment">#                          attention_mask=b_input_mask, </span>
+        <span class="hljs-comment">#                          labels=b_labels)</span>
+    
+        outputs = model(
+            input_ids=b_input_ids,
+            attention_mask=b_input_mask,
+            labels=b_labels  <span class="hljs-comment"># 确保传递了 labels</span>
+        )
+        
+        <span class="hljs-comment"># 从 outputs 中提取 loss 和 logits</span>
+        loss = outputs.loss  <span class="hljs-comment"># 直接访问 loss 属性</span>
+        logits = outputs.logits
+    
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;模型返回的 loss:&quot;</span>, loss.item())
+    
+        <span class="hljs-comment"># 累加 loss</span>
+        total_train_loss += loss.item()
+    
+        <span class="hljs-comment"># 反向传播</span>
+        loss.backward()
+    
+        <span class="hljs-comment"># 梯度裁剪，避免出现梯度爆炸情况</span>
+        torch.nn.utils.clip_grad_norm_(model.parameters(), <span class="hljs-number">1.0</span>)
+    
+        <span class="hljs-comment"># 更新参数</span>
+        optimizer.step()
+    
+        <span class="hljs-comment"># 更新学习率</span>
+        scheduler.step()
+
+    <span class="hljs-comment"># 平均训练误差</span>
+    avg_train_loss = total_train_loss / <span class="hljs-built_in">len</span>(train_dataloader)            
+    
+    <span class="hljs-comment"># 单次 epoch 的训练时长</span>
+    training_time = format_time(time.time() - t0)
+</code></pre></div>
+<h2 id="model-prediction">Model Prediction</h2>
+<p>I use model.eval to get the prediction result</p>
+<div class="highlight"><pre class="code"><code>model.<span class="hljs-built_in">eval</span>()
+
+<span class="hljs-comment"># Tracking variables </span>
+predictions , true_labels = [], []
+
+<span class="hljs-comment"># 预测</span>
+<span class="hljs-keyword">for</span> batch <span class="hljs-keyword">in</span> test_dataloader:
+  <span class="hljs-comment"># 将数据加载到 gpu 中</span>
+  batch = <span class="hljs-built_in">tuple</span>(t.to(device) <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> batch)
+  b_input_ids, b_input_mask = batch
+  
+  <span class="hljs-comment"># 不需要计算梯度</span>
+  <span class="hljs-keyword">with</span> torch.no_grad():
+      <span class="hljs-comment"># 前向传播，获取预测结果</span>
+      outputs = model(b_input_ids,attention_mask=b_input_mask)
+
+  logits = outputs.logits
+
+  <span class="hljs-comment"># 将结果加载到 cpu 中</span>
+  batch_logits = logits.detach().cpu().numpy()
+  
+  <span class="hljs-comment"># 存储预测结果和 labels</span>
+  predictions.append(batch_logits)
+
+flat_predictions = np.concatenate(predictions, axis=<span class="hljs-number">0</span>)
+predicted_labels = np.argmax(flat_predictions, axis=<span class="hljs-number">1</span>)
+
 </code></pre></div>
 <p><strong>Why?</strong></p>
 <p>This chanllenge is a classification problem,and BERT has these suitable features:<br>
 1.Superior Understanding of Context from Both Directions;<br>
-2.Effectiveness in Pre-training and Fine-tuning;<br>
+2.Effectiveness in Pre-training and Fine-tuning;What we need to do is to add an untrained neuronal layer at the end, and then train a new model to complete our classification task;<br>
 3.Deep Contextual Analysis;<br>
 4.Versatility Across Multiple Tasks</p>
 <h2 id="limitation">Limitation</h2>
-<p>1.Long Training Time:I only trained for 3 epochs,but it took 12719.4s.<br>
-2.Not so superior performance:the final score is only 0.57033:Perhaps this is because BERT may not be as effective as traditional machine learning models (e.g., Naive Bayes) or shallow neural networks (e.g., CNNs) for some simple text classification tasks, such as short text classification or binary classification problems, and they also have advantages in terms of computing resources and training time.</p>
+<p>Long Training Time:I only trained for 2 epochs,but it took 10941.0s.</p>
 <h2 id="to-do">TO DO</h2>
 <p>1.Increase the train epochs;<br>
 2.Try other models or methods;<br>
@@ -298,13 +472,10 @@ X_bert=tokenizer(
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/10/26/on-device-LLM-deployment-3/" rel="prev" title="On-device LLM Deployment-3">
-      <i class="fa fa-chevron-left"></i> On-device LLM Deployment-3
+    <a href="/2025/02/26/The-first-kaggle-experience/" rel="prev" title="'The-first-kaggle-experience'">
+      <i class="fa fa-chevron-left"></i> 'The-first-kaggle-experience'
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2025/03/19/The-first-kaggle-experience-update/" rel="next" title="The-first-kaggle-experience-update">
-      The-first-kaggle-experience-update <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -363,7 +534,7 @@ X_bert=tokenizer(
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#data-process"><span class="nav-number">1.</span> <span class="nav-text">Data Process</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#model-train"><span class="nav-number">2.</span> <span class="nav-text">Model Train</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#limitation"><span class="nav-number">3.</span> <span class="nav-text">Limitation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#to-do"><span class="nav-number">4.</span> <span class="nav-text">TO DO</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#data-process"><span class="nav-number">1.</span> <span class="nav-text">Data Process</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#model-train"><span class="nav-number">2.</span> <span class="nav-text">Model Train</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#model-prediction"><span class="nav-number">3.</span> <span class="nav-text">Model Prediction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#limitation"><span class="nav-number">4.</span> <span class="nav-text">Limitation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#to-do"><span class="nav-number">5.</span> <span class="nav-text">TO DO</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
