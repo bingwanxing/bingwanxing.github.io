@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Computer Sceince and Phylosiphy">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bingwanxing&#39;s Blog">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Bingwanxing&#39;s Blog">
+<meta property="og:description" content="Computer Sceince and Phylosiphy">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Bingwanxing">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Bingwanxing's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Bingwanxing's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Diversity is essential to happiness</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-literature">
+
+    <a href="/literature/" rel="section"><i class="fa fa-book fa-fw"></i>literature</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/07/git-guide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bingwanxing">
+      <meta itemprop="description" content="Computer Sceince and Phylosiphy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bingwanxing's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/11/07/git-guide/" class="post-title-link" itemprop="url">git-guide</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-11-07 21:04:20 / Modified: 22:49:32" itemprop="dateCreated datePublished" datetime="2025-11-07T21:04:20+08:00">2025-11-07</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>5.1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>9 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<h2 id="">🚀 Basic Git Tutorial (Windows &amp; Linux)</h2>
+<h3 id="what-is git?">What is Git?</h3>
+<p>Simply put, <strong>Git is a “Distributed Version Control System.”</strong></p>
+<ul>
+<li><strong>Version Control:</strong> It helps you track all the historical changes to your project. Just like having countless save points in a video game, you can return to any “saved” state at any time.</li>
+<li><strong>Distributed:</strong> Everyone’s computer has a complete “copy” (repository) of the project. You can work locally (commit, create branches) without needing a constant internet connection.</li>
+</ul>
+<hr>
+<h3 id="1\-installing git">1. Installing Git</h3>
+<h4 id="💻-on windows">💻 On Windows</h4>
+<ol>
+<li>Visit the official Git website:<br>
+<a target="_blank" rel="noopener" href="https://git-scm.com/">https://git-scm.com/</a></li>
+<li>Download the Windows installer.</li>
+<li>Run the installer. During the installation, <strong>keeping the default settings</strong> is usually the best choice.</li>
+<li>The most important step: After installation, you will get a program called <strong>Git Bash</strong>. <strong>Please always use Git Bash.</strong> It provides a command-line environment similar to Linux, and all commands in this tutorial will run there.</li>
+</ol>
+<h4 id="🐧-on linux (ubuntu/debian example)">🐧 On Linux (Ubuntu/Debian example)</h4>
+<p>Installation on Linux is very simple. Open your terminal and run:</p>
+<div class="highlight"><pre class="code"><code>sudo apt update
+sudo apt <span class="hljs-keyword">install</span> git
+</code></pre></div>
+<p>(For other distributions, like Fedora, you can use <code>sudo dnf install git</code>)</p>
+<hr>
+<h3 id="2\-first-time setup: global configuration">2. First-Time Setup: Global Configuration</h3>
+<p>Before you make your first commit, you need to tell Git who you are. This information will be attached to every commit you make.</p>
+<p><strong>On both Windows (open Git Bash) and Linux (open terminal), the commands are identical.</strong></p>
+<div class="highlight"><pre class="code"><code><span class="hljs-comment"># Set your username</span>
+git config --<span class="hljs-built_in">global</span> user.name <span class="hljs-string">&quot;Your Name&quot;</span>
+
+<span class="hljs-comment"># Set your email (Please use the email you registered on GitHub/GitLab with)</span>
+git config --<span class="hljs-built_in">global</span> user.email <span class="hljs-string">&quot;your.email@example.com&quot;</span>
+</code></pre></div>
+<hr>
+<h3 id="3\-how to configure a git key (ssh key)">3. How to Configure a Git Key (SSH Key)</h3>
+<p>We use SSH keys to achieve a “password-less login.” Once configured, you will no longer need to repeatedly enter your username and password when you <code>clone</code> and <code>push</code> your own projects.</p>
+<p><strong>The process is almost identical on Windows (Git Bash) and Linux (terminal).</strong></p>
+<h4 id="step-1: generate an ssh key">Step 1: Generate an SSH Key</h4>
+<div class="highlight"><pre class="code"><code><span class="hljs-comment"># Use your email as a label</span>
+<span class="hljs-attribute">ssh</span>-keygen -t rsa -b <span class="hljs-number">4096</span> -C <span class="hljs-string">&quot;your.email@example.com&quot;</span>
+</code></pre></div>
+<ul>
+<li>After running it, it will ask “Enter file in which to save the key…”
+<ul>
+<li><strong>Just press Enter</strong> to accept the default path (usually <code>~/.ssh/id_rsa</code>).</li>
+</ul>
+</li>
+<li>Next, it will ask “Enter passphrase…”
+<ul>
+<li><strong>It is recommended to press Enter twice</strong> (i.e., set no passphrase) for the most convenient pull/push experience.</li>
+</ul>
+</li>
+</ul>
+<h4 id="step-2: view and copy your public key">Step 2: View and Copy Your Public Key</h4>
+<p>Your “key” is split into two parts: a private key (id_rsa) and a public key (id_rsa.pub). You need to copy the <strong>public key</strong> (.pub) to the GitHub or GitLab website.</p>
+<div class="highlight"><pre class="code"><code><span class="hljs-comment"># Display the contents of the public key file</span>
+cat ~<span class="hljs-regexp">/.ssh/i</span>d_rsa.pub
+</code></pre></div>
+<p>You will see a long string of text starting with <code>ssh-rsa</code> and ending with your email. <strong>Copy this entire string completely.</strong></p>
+<h4 id="step-3: add it to github/gitlab">Step 3: Add it to GitHub/GitLab</h4>
+<ol>
+<li>Log in to your GitHub (or GitLab) account.</li>
+<li>Go to <strong>Settings</strong>.</li>
+<li>Find the <strong>SSH and GPG keys</strong> menu.</li>
+<li>Click <strong>New SSH key</strong>.</li>
+<li><strong>Title:</strong> Fill in anything, for example, “My Windows PC” or “Linux VM”.</li>
+<li><strong>Key:</strong> <strong>Paste</strong> the <strong>public key</strong> content you copied in the previous step.</li>
+<li>Click <strong>Add SSH key</strong>.</li>
+</ol>
+<hr>
+<h3 id="4\-core git operations">4. Core Git Operations</h3>
+<h4 id="a-`git clone` (clone/download a repository)">A. <code>git clone</code> (Clone/Download a Repository)</h4>
+<p>This is your starting point for joining a project. You download a complete copy of a project from a remote repository (like GitHub) to your local machine.</p>
+<ol>
+<li>Go to GitHub and find the project you want to clone.</li>
+<li>Click the green <strong>“Code”</strong> button.</li>
+<li><strong>Important:</strong> Select the <strong>“SSH”</strong> tab (not “HTTPS”).</li>
+<li>Copy the address that starts with <code>git@github.com:...</code>.</li>
+</ol>
+<p>Then, in your terminal (Git Bash or Linux terminal), run:</p>
+<div class="highlight"><pre class="code"><code><span class="hljs-comment"># Example address, please replace it with your own</span>
+git <span class="hljs-keyword">clone</span> <span class="hljs-title">git</span>@github.com:username/project-name.git
+
+<span class="hljs-comment"># After it finishes, enter the project directory</span>
+cd project-name
+</code></pre></div>
+<h4 id="b-`git branch` (branch management)">B. <code>git branch</code> (Branch Management)</h4>
+<p>Branching is the core magic of Git. You can safely develop new features or fix bugs without affecting the “main line” (usually called <code>main</code> or <code>master</code>).</p>
+<div class="highlight"><pre class="code"><code># <span class="hljs-number">1.</span> See <span class="hljs-keyword">all</span> your <span class="hljs-keyword">current</span> branches (<span class="hljs-keyword">and</span> which one you are <span class="hljs-keyword">on</span>)
+git branch
+
+# <span class="hljs-number">2.</span> <span class="hljs-keyword">Create</span> a <span class="hljs-built_in">new</span> branch named &quot;feature-login&quot;
+git branch feature-<span class="hljs-keyword">login</span>
+
+# <span class="hljs-number">3.</span> Switch <span class="hljs-keyword">to</span> that <span class="hljs-built_in">new</span> branch (<span class="hljs-keyword">all</span> your changes <span class="hljs-keyword">from</span> now <span class="hljs-keyword">on</span> will be <span class="hljs-keyword">on</span> this branch)
+git checkout feature-<span class="hljs-keyword">login</span>
+</code></pre></div>
+<blockquote>
+<p><strong>⭐ Common Shortcut (Create and switch immediately):</strong></p>
+<div class="highlight"><pre class="code"><code><span class="hljs-comment"># This one command = Step 2 + Step 3 above</span>
+git checkout -b<span class="hljs-built_in"> new-feature-name
+</span></code></pre></div>
+</blockquote>
+<h4 id="c-`git push` (pushing code)">C. <code>git push</code> (Pushing Code)</h4>
+<p>When you have finished your changes locally, you need to “push” these changes back to the remote repository (GitHub) so others can see them.</p>
+<p><strong>The complete push workflow (A three-step process):</strong></p>
+<p>Let’s assume you have modified files on your <code>feature-login</code> branch.</p>
+<div class="highlight"><pre class="code"><code><span class="hljs-comment"># 1. Check the status of your files (see what you changed)</span>
+git status
+
+<span class="hljs-comment"># 2. &quot;Stage&quot; your modified files (telling Git you want to commit these)</span>
+<span class="hljs-comment"># ( . means &quot;all modified files&quot;)</span>
+git <span class="hljs-builtin-name">add</span> .
+
+<span class="hljs-comment"># 3. &quot;Commit&quot; your changes and write a &quot;commit message&quot; (explaining what you changed)</span>
+git commit -m <span class="hljs-string">&quot;Developed the login feature&quot;</span>
+</code></pre></div>
+<p><strong>The final step: Push!</strong></p>
+<div class="highlight"><pre class="code"><code># Push your <span class="hljs-built_in">local</span> <span class="hljs-string">&quot;feature-login&quot;</span> branch to the remote repository <span class="hljs-string">&quot;origin&quot;</span>
+git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> <span class="hljs-built_in">feature</span>-login
+</code></pre></div>
+<blockquote>
+<p><strong>⭐ Tip:</strong> If this is the <strong>first time</strong> you are pushing this new branch, Git might prompt you to use a more complete command: <code>git push --set-upstream origin feature-login</code> (Just copy and paste what it suggests. This “links” your local branch to the remote branch).</p>
+</blockquote>
+<hr>
+<h3 id="summary:-windows vs linux differences">Summary: Windows vs. Linux Differences</h3>
+<p>As you can see, the <strong>core Git commands</strong> are <strong>exactly the same</strong> on Windows (using <strong>Git Bash</strong>) and Linux.</p>
+<p>The only real differences are:</p>
+<ol>
+<li><strong>Installation Method</strong>: Windows uses an <code>.exe</code> installer, while Linux uses a package manager (<code>apt</code>/<code>dnf</code>).</li>
+<li><strong>Terminal Environment</strong>: Linux uses the terminal natively. On Windows, it is highly recommended to use <strong>Git Bash</strong> for a consistent experience.</li>
+<li><strong>Line Endings (CRLF vs. LF)</strong>: This is a hidden pitfall. Windows defaults to <code>CRLF</code> for line breaks, while Linux/macOS use <code>LF</code>. Git can automatically configure this during installation (<code>core.autocrlf</code>), so you usually don’t need to handle it manually.</li>
+</ol>
+<p>This basic tutorial should be enough to help you get started.</p>
+<p>![](…/…/public/images/20200421095153-5e9ec2398d69d.jpg&quot;Creazione di Adamo&quot;)</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/19/The-first-kaggle-experience-update/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bingwanxing">
+      <meta itemprop="description" content="Computer Sceince and Phylosiphy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bingwanxing's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/03/19/The-first-kaggle-experience-update/" class="post-title-link" itemprop="url">The-first-kaggle-experience-update</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-03-19 15:54:58 / Modified: 20:26:16" itemprop="dateCreated datePublished" datetime="2025-03-19T15:54:58+08:00">2025-03-19</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>5.2k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>9 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="data-process">Data Process</h2>
+<p>1.after checking the data file,I found that the keyword and location column is NaN.Therefore,I fill “unkown” to replace NaN.</p>
+<div class="highlight"><pre class="code"><code>data_train[<span class="hljs-string">&#x27;keyword&#x27;</span>] = data_train[<span class="hljs-string">&#x27;keyword&#x27;</span>].fillna(<span class="hljs-string">&#x27;uknown_keyword&#x27;</span>)
+data_train[<span class="hljs-string">&#x27;location&#x27;</span>] = data_train[<span class="hljs-string">&#x27;location&#x27;</span>].fillna(<span class="hljs-string">&#x27;uknown_location&#x27;</span>)
+</code></pre></div>
+<p>2.I use Pandas to combine the keyword,location,and text columns of each row in the dataset into a single string,and stores these strings in a list.</p>
+<div class="highlight"><pre class="code"><code>corpus = data_train.apply(<span class="hljs-keyword">lambda</span> row:<span class="hljs-string">f&quot;keyword:<span class="hljs-subst">&#123;row[<span class="hljs-string">&#x27;keyword&#x27;</span>]&#125;</span> | location:<span class="hljs-subst">&#123;row[<span class="hljs-string">&#x27;location&#x27;</span>]&#125;</span> | text: <span class="hljs-subst">&#123;row[<span class="hljs-string">&#x27;text&#x27;</span>]&#125;</span>&quot;</span>,axis=<span class="hljs-number">1</span>).tolist()
+</code></pre></div>
+<p>3.I use BertTokenizer to tokenize and preprocessing the list.</p>
+<div class="highlight"><pre class="code"><code>max_len = <span class="hljs-number">0</span>
+<span class="hljs-keyword">for</span> sent <span class="hljs-keyword">in</span> corpus:
+    <span class="hljs-comment"># 将文本分词，并添加 `[CLS]` 和 `[SEP]` 符号</span>
+    input_ids = tokenizer.encode(sent, add_special_tokens=<span class="hljs-literal">True</span>)
+    max_len = <span class="hljs-built_in">max</span>(max_len, <span class="hljs-built_in">len</span>(input_ids))
+    
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Max sentence length: &#x27;</span>, max_len)
+
+max_len = <span class="hljs-number">0</span>
+<span class="hljs-keyword">for</span> sent <span class="hljs-keyword">in</span> corpuss:
+    input_ids = tokenizer.encode(sent, add_special_tokens=<span class="hljs-literal">True</span>)
+    max_len = <span class="hljs-built_in">max</span>(max_len, <span class="hljs-built_in">len</span>(input_ids))
+    
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Max sentence length: &#x27;</span>, max_len)
+
+input_ids = []
+attention_masks = []
+
+<span class="hljs-keyword">for</span> sent <span class="hljs-keyword">in</span> corpus:
+    X_bert = tokenizer.encode_plus(
+        sent,
+        add_special_tokens = <span class="hljs-literal">True</span>,
+        max_length = <span class="hljs-number">128</span>,
+        pad_to_max_length = <span class="hljs-literal">True</span>,
+        return_attention_mask = <span class="hljs-literal">True</span>,
+        return_tensors = <span class="hljs-string">&#x27;pt&#x27;</span>,
+    )
+    input_ids.append(X_bert[<span class="hljs-string">&#x27;input_ids&#x27;</span>])
+    attention_masks.append(X_bert[<span class="hljs-string">&#x27;attention_mask&#x27;</span>])
+
+input_ids = torch.cat(input_ids,dim=<span class="hljs-number">0</span>)
+attention_masks = torch.cat(attention_masks,dim=<span class="hljs-number">0</span>)
+labels = torch.tensor(y, dtype=torch.long)
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Original: &#x27;</span>, corpus[<span class="hljs-number">0</span>])
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Token IDs:&#x27;</span>, input_ids[<span class="hljs-number">0</span>])
+
+input_idss = []
+attention_maskss = []
+
+<span class="hljs-keyword">for</span> sent <span class="hljs-keyword">in</span> corpuss:
+    encoded_dicts = tokenizer.encode_plus(
+                        sent,                      
+                        add_special_tokens = <span class="hljs-literal">True</span>, 
+                        max_length = <span class="hljs-number">128</span>,           
+                        pad_to_max_length = <span class="hljs-literal">True</span>,
+                        return_attention_mask = <span class="hljs-literal">True</span>,   
+                        return_tensors = <span class="hljs-string">&#x27;pt&#x27;</span>,     
+                   )
+    input_idss.append(encoded_dicts[<span class="hljs-string">&#x27;input_ids&#x27;</span>])
+    attention_maskss.append(encoded_dicts[<span class="hljs-string">&#x27;attention_mask&#x27;</span>])
+
+input_idss = torch.cat(input_idss, dim=<span class="hljs-number">0</span>)
+attention_maskss = torch.cat(attention_maskss, dim=<span class="hljs-number">0</span>)
+</code></pre></div>
+<p>4.I use pytorch Dataset to transform the tokenized corpus and corpuss to a dataset used in BERT.</p>
+<div class="highlight"><pre class="code"><code><span class="hljs-keyword">from</span> torch.utils.data <span class="hljs-keyword">import</span> TensorDataset
+
+dataset = TensorDataset(input_ids, attention_masks, labels)
+datasets = TensorDataset(input_idss, attention_maskss)<span class="hljs-comment">#dataset for test doesn&#x27;t include labels</span>
+</code></pre></div>
+<h2 id="model-train">Model Train</h2>
+<p>I choose BERT and set</p>
+<div class="highlight"><pre class="code"><code>optimizer = AdamW(model.parameters(),
+                 lr = <span class="hljs-number">2e-5</span>,
+                 eps = <span class="hljs-number">1e-8</span>
+                 )
+
+<span class="hljs-keyword">from</span> transformers <span class="hljs-keyword">import</span> get_linear_schedule_with_warmup
+
+epochs = <span class="hljs-number">2</span>
+
+total_steps = <span class="hljs-built_in">len</span>(train_dataloader) * epochs
+
+scheduler = get_linear_schedule_with_warmup(optimizer,
+                                           num_warmup_steps = <span class="hljs-number">0</span>,
+                                           num_training_steps = total_steps)
+</code></pre></div>
+<p>Then,I conduct training in small batches</p>
+<div class="highlight"><pre class="code"><code>device = torch.device(<span class="hljs-string">&#x27;cuda&#x27;</span> <span class="hljs-keyword">if</span> torch.cuda.is_available() <span class="hljs-keyword">else</span> <span class="hljs-string">&#x27;cpu&#x27;</span>)
+
+seed_val = <span class="hljs-number">42</span>
+
+random.seed(seed_val)
+np.random.seed(seed_val)
+torch.manual_seed(seed_val)
+torch.cuda.manual_seed_all(seed_val)
+
+<span class="hljs-comment"># 存储训练和评估的 loss、准确率、训练时长等统计指标, </span>
+training_stats = []
+
+total_t0 = time.time()
+
+<span class="hljs-keyword">for</span> epoch_i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, epochs):
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;======== Epoch &#123;:&#125; / &#123;:&#125; ========&#x27;</span>.<span class="hljs-built_in">format</span>(epoch_i + <span class="hljs-number">1</span>, epochs))
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Training...&#x27;</span>)
+
+    <span class="hljs-comment"># 统计单次 epoch 的训练时间</span>
+    t0 = time.time()
+
+    <span class="hljs-comment"># 重置每次 epoch 的训练总 loss</span>
+    total_train_loss = <span class="hljs-number">0</span>
+
+    <span class="hljs-comment"># 将模型设置为训练模式。这里并不是调用训练接口的意思</span>
+    model.train()
+
+    <span class="hljs-comment"># 训练集小批量迭代</span>
+    <span class="hljs-keyword">for</span> step, batch <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(train_dataloader):
+
+        <span class="hljs-comment"># 每经过40次迭代，就输出进度信息</span>
+        <span class="hljs-keyword">if</span> step % <span class="hljs-number">40</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> step == <span class="hljs-number">0</span>:
+            elapsed = format_time(time.time() - t0)
+            <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;  Batch &#123;:&gt;5,&#125;  of  &#123;:&gt;5,&#125;.    Elapsed: &#123;:&#125;.&#x27;</span>.<span class="hljs-built_in">format</span>(step, <span class="hljs-built_in">len</span>(train_dataloader), elapsed))
+
+        b_input_ids = batch[<span class="hljs-number">0</span>].to(device)
+        b_input_mask = batch[<span class="hljs-number">1</span>].to(device)
+        b_labels = batch[<span class="hljs-number">2</span>].to(device)
+        <span class="hljs-comment"># print(b_input_ids.shape)  # 应为 (batch_size, max_length)</span>
+        <span class="hljs-comment"># print(b_input_mask.shape) # 同上</span>
+        <span class="hljs-comment"># print(b_labels.shape)     # 应为 (batch_size,)</span>
+
+        model.zero_grad()<span class="hljs-comment">#每次计算梯度前将其清零，因为pytorch梯度是累加的</span>
+    
+        <span class="hljs-comment">#前向</span>
+        <span class="hljs-comment"># loss, logits = model(b_input_ids, </span>
+        <span class="hljs-comment">#                          token_type_ids=None, </span>
+        <span class="hljs-comment">#                          attention_mask=b_input_mask, </span>
+        <span class="hljs-comment">#                          labels=b_labels)</span>
+    
+        outputs = model(
+            input_ids=b_input_ids,
+            attention_mask=b_input_mask,
+            labels=b_labels  <span class="hljs-comment"># 确保传递了 labels</span>
+        )
+        
+        <span class="hljs-comment"># 从 outputs 中提取 loss 和 logits</span>
+        loss = outputs.loss  <span class="hljs-comment"># 直接访问 loss 属性</span>
+        logits = outputs.logits
+    
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;模型返回的 loss:&quot;</span>, loss.item())
+    
+        <span class="hljs-comment"># 累加 loss</span>
+        total_train_loss += loss.item()
+    
+        <span class="hljs-comment"># 反向传播</span>
+        loss.backward()
+    
+        <span class="hljs-comment"># 梯度裁剪，避免出现梯度爆炸情况</span>
+        torch.nn.utils.clip_grad_norm_(model.parameters(), <span class="hljs-number">1.0</span>)
+    
+        <span class="hljs-comment"># 更新参数</span>
+        optimizer.step()
+    
+        <span class="hljs-comment"># 更新学习率</span>
+        scheduler.step()
+
+    <span class="hljs-comment"># 平均训练误差</span>
+    avg_train_loss = total_train_loss / <span class="hljs-built_in">len</span>(train_dataloader)            
+    
+    <span class="hljs-comment"># 单次 epoch 的训练时长</span>
+    training_time = format_time(time.time() - t0)
+</code></pre></div>
+<h2 id="model-prediction">Model Prediction</h2>
+<p>I use model.eval to get the prediction result</p>
+<div class="highlight"><pre class="code"><code>model.<span class="hljs-built_in">eval</span>()
+
+<span class="hljs-comment"># Tracking variables </span>
+predictions , true_labels = [], []
+
+<span class="hljs-comment"># 预测</span>
+<span class="hljs-keyword">for</span> batch <span class="hljs-keyword">in</span> test_dataloader:
+  <span class="hljs-comment"># 将数据加载到 gpu 中</span>
+  batch = <span class="hljs-built_in">tuple</span>(t.to(device) <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> batch)
+  b_input_ids, b_input_mask = batch
+  
+  <span class="hljs-comment"># 不需要计算梯度</span>
+  <span class="hljs-keyword">with</span> torch.no_grad():
+      <span class="hljs-comment"># 前向传播，获取预测结果</span>
+      outputs = model(b_input_ids,attention_mask=b_input_mask)
+
+  logits = outputs.logits
+
+  <span class="hljs-comment"># 将结果加载到 cpu 中</span>
+  batch_logits = logits.detach().cpu().numpy()
+  
+  <span class="hljs-comment"># 存储预测结果和 labels</span>
+  predictions.append(batch_logits)
+
+flat_predictions = np.concatenate(predictions, axis=<span class="hljs-number">0</span>)
+predicted_labels = np.argmax(flat_predictions, axis=<span class="hljs-number">1</span>)
+
+</code></pre></div>
+<p><strong>Why?</strong></p>
+<p>This chanllenge is a classification problem,and BERT has these suitable features:<br>
+1.Superior Understanding of Context from Both Directions;<br>
+2.Effectiveness in Pre-training and Fine-tuning;What we need to do is to add an untrained neuronal layer at the end, and then train a new model to complete our classification task;<br>
+3.Deep Contextual Analysis;<br>
+4.Versatility Across Multiple Tasks</p>
+<h2 id="limitation">Limitation</h2>
+<p>Long Training Time:I only trained for 2 epochs,but it took 10941.0s.</p>
+<h2 id="to-do">TO DO</h2>
+<p>1.Increase the train epochs;<br>
+2.Try other models or methods;<br>
+3.Add error blog.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/26/The-first-kaggle-experience/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bingwanxing">
+      <meta itemprop="description" content="Computer Sceince and Phylosiphy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bingwanxing's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/02/26/The-first-kaggle-experience/" class="post-title-link" itemprop="url">'The-first-kaggle-experience'</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-02-26 15:45:20 / Modified: 16:09:14" itemprop="dateCreated datePublished" datetime="2025-02-26T15:45:20+08:00">2025-02-26</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="data-process">Data Process</h2>
+<p>1.after checking the data file,I found that the keyword and location column is NaN.Therefore,I fill “unkown” to replace NaN.</p>
+<div class="highlight"><pre class="code"><code>data_train[<span class="hljs-string">&#x27;keyword&#x27;</span>] = data_train[<span class="hljs-string">&#x27;keyword&#x27;</span>].fillna(<span class="hljs-string">&#x27;uknown_keyword&#x27;</span>)
+data_train[<span class="hljs-string">&#x27;location&#x27;</span>] = data_train[<span class="hljs-string">&#x27;location&#x27;</span>].fillna(<span class="hljs-string">&#x27;uknown_location&#x27;</span>)
+</code></pre></div>
+<p>2.I use Pandas to combine the keyword,location,and text columns of each row in the dataset into a single string,and stores these strings in a list.</p>
+<div class="highlight"><pre class="code"><code>corpus = data_train.apply(<span class="hljs-keyword">lambda</span> row:<span class="hljs-string">f&quot;keyword:<span class="hljs-subst">&#123;row[<span class="hljs-string">&#x27;keyword&#x27;</span>]&#125;</span> | location:<span class="hljs-subst">&#123;row[<span class="hljs-string">&#x27;location&#x27;</span>]&#125;</span> | text: <span class="hljs-subst">&#123;row[<span class="hljs-string">&#x27;text&#x27;</span>]&#125;</span>&quot;</span>,axis=<span class="hljs-number">1</span>).tolist()
+</code></pre></div>
+<p>3.I use BertTokenizer to tokenize and preprocessing the list.</p>
+<div class="highlight"><pre class="code"><code>tokenizer = BertTokenizer.from_pretrained(<span class="hljs-string">&#x27;bert-base-uncased&#x27;</span>)
+X_bert=tokenizer(
+    corpus,
+    padding=<span class="hljs-literal">True</span>,
+    truncation=<span class="hljs-literal">True</span>,
+    return_tensors=<span class="hljs-string">&#x27;tf&#x27;</span>
+)
+</code></pre></div>
+<p>4.I use TensorFlow Dataset to transform the X.Bert to a dataset used in BERT.</p>
+<div class="highlight"><pre class="code"><code>dataset = tf.data.Dataset.from_tensor_slices((
+    &#123;<span class="hljs-string">&quot;input_ids&quot;</span>: input_ids, <span class="hljs-string">&quot;attention_mask&quot;</span>: attention_mask&#125;,
+    y
+)).batch(<span class="hljs-number">32</span>)
+</code></pre></div>
+<h2 id="model-train">Model Train</h2>
+<p>I choose BERT and set</p>
+<div class="highlight"><pre class="code"><code>optimizer=<span class="hljs-string">&#x27;adam&#x27;</span>, loss=<span class="hljs-string">&#x27;binary_crossentropy&#x27;</span>, metrics=[<span class="hljs-string">&#x27;accuracy&#x27;</span>]
+</code></pre></div>
+<p><strong>Why?</strong></p>
+<p>This chanllenge is a classification problem,and BERT has these suitable features:<br>
+1.Superior Understanding of Context from Both Directions;<br>
+2.Effectiveness in Pre-training and Fine-tuning;<br>
+3.Deep Contextual Analysis;<br>
+4.Versatility Across Multiple Tasks</p>
+<h2 id="limitation">Limitation</h2>
+<p>1.Long Training Time:I only trained for 3 epochs,but it took 12719.4s.<br>
+2.Not so superior performance:the final score is only 0.57033:Perhaps this is because BERT may not be as effective as traditional machine learning models (e.g., Naive Bayes) or shallow neural networks (e.g., CNNs) for some simple text classification tasks, such as short text classification or binary classification problems, and they also have advantages in terms of computing resources and training time.</p>
+<h2 id="to-do">TO DO</h2>
+<p>1.Increase the train epochs;<br>
+2.Try other models or methods;<br>
+3.Add error blog.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/26/on-device-LLM-deployment-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bingwanxing">
+      <meta itemprop="description" content="Computer Sceince and Phylosiphy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bingwanxing's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/10/26/on-device-LLM-deployment-3/" class="post-title-link" itemprop="url">On-device LLM Deployment-3</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-10-26 17:26:50 / Modified: 19:33:06" itemprop="dateCreated datePublished" datetime="2024-10-26T17:26:50+08:00">2024-10-26</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>988</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>This week focus on paper reading and basic knowledge learning.</p>
+<p>First,I summarised the difference of QAT and PTQ.</p>
+<h2 id="quantization-aware-training (qat) core method">Quantization-Aware Training (QAT) Core Method</h2>
+<p>Simulated Quantization During Training,Full Model Fine-Tuning,Quantizing Weights and Activations.</p>
+<h2 id="post-training-quantization (ptq) core method">Post-Training Quantization (PTQ) Core Method</h2>
+<p>Quantization After Training,Static Quantization,Dynamic Quantization.</p>
+<p>Here is a chart about comparison of them.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Feature</strong></th>
+<th><strong>Quantization-Aware Training(QAT)</strong></th>
+<th><strong>Post-Training Quantization (PTQ)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Training</td>
+<td>Requires retraining with quantization</td>
+<td>No retraining needed, applied aftertraining</td>
+</tr>
+<tr>
+<td>Use Case</td>
+<td>Best for high-precision tasks on resource.constrained devices</td>
+<td>Fast deployment, suited for simplerquantization tasks</td>
+</tr>
+<tr>
+<td>Accuracy Loss</td>
+<td>Minimal, close to floating-point accuracy</td>
+<td>Potential for higher accuracy loss</td>
+</tr>
+<tr>
+<td>Efficiency Gains</td>
+<td>High efficiency on low-precision hardware</td>
+<td>Also boosts efficiency, but lessoptimal for some models</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Higher complexity due to simulatedquantization during training</td>
+<td>Simpler implementation</td>
+</tr>
+</tbody>
+</table>
+<p>Secondly,I go over knowledge of transfomer,whose note is on the goodnotes.</p>
+<blockquote>
+<p><em>我总感觉像生活在大海上，受到威胁，然而心中存有巨大的幸福。————加谬</em></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/18/LLM-Deployment-on-Android-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bingwanxing">
+      <meta itemprop="description" content="Computer Sceince and Phylosiphy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bingwanxing's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/10/18/LLM-Deployment-on-Android-2/" class="post-title-link" itemprop="url">On-device LLM Deployment-2</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2024-10-18 19:12:06" itemprop="dateCreated datePublished" datetime="2024-10-18T19:12:06+08:00">2024-10-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-10-26 19:33:12" itemprop="dateModified" datetime="2024-10-26T19:33:12+08:00">2024-10-26</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.3k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>4 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>After last week’s exploration,I got more <a target="_blank" rel="noopener" href="http://practised.So">practised.So</a> I have basically done the Deployment on Android,which should be working but got a problem.The problem is every time I open the app containing the Gemma-2-2b,the stimulater got crashed.</p>
+<p>I think it’s because the configuration of stimulater is not <a target="_blank" rel="noopener" href="http://enough.So">enough.So</a> there is two ways to solve it:1,use a real phone;2,finetune the model.</p>
+<p>I choose the latter.</p>
+<p>So the way became so clear,now my work is to use some finetune strategies to make the model works better.</p>
+<p>Firstly I tried LoRA.And I will try DV and prunning next week.(no Qutization because the model has already been 8-bit.)(now I found this idea is wrong:d.)</p>
+<p>And here’s summary of four ways to optimize LLMs:</p>
+<h2 id="quantization">Quantization</h2>
+<p><strong>Quantization</strong> minimizes the precision (number after decimal) of model parameters, leading to reduced memory usage and faster computation, which is vital for deploying LLMs on devices with limited resources.</p>
+<p>Trade-off: While quantization offers efficiency gains, a potential downside is a slight decrease in model accuracy. The impact on accuracy can vary depending on the specific technique and the task at hand.</p>
+<h2 id="knowledge-distillation">Knowledge Distillation</h2>
+<p>This involves training a smaller “student” model to replicate the performance of a larger “teacher” model. The student model learns to mimic the outputs of the teacher model, achieving similar results with fewer parameters.</p>
+<h2 id="pruning">Pruning</h2>
+<p><strong>Pruning</strong> involves removing parts of a model (such as neurons or entire layers) that contribute little to the output, effectively reducing the model size and improving computational efficiency without significantly affecting accuracy.</p>
+<h2 id="tuning">Tuning</h2>
+<p><strong>Finetuning</strong> involves adapting pre-trained models to specific tasks, enhancing their effectiveness without expansive retraining:<br>
+Trade-off: It risks overfitting, where the model performs well on training data but poorly on unseen data.</p>
+<p><strong>Last Layer Tuning</strong> adjusts the final layer of the model, optimizing it for tasks closely related to the original training. The trade off is, that it might not capture complex patterns as that require deeper model adjustments.</p>
+<p><strong>Adapter Layer Tuning</strong> integrates trainable modules between layers, tailoring the model’s output. As it adds extra parameters to the model, which can increase the computational load.</p>
+<p><strong>Prefix Tuning</strong> adds tunable parameters at the input sequence start, directing the model’s focus. Trade off is that it requires careful design of the prefix layer to avoid introducing biases.</p>
+<p><strong>Low Rank Adaptation (LoRA)</strong> employs low-rank matrices for efficient weight adaptation.<br>
+potentially impacting the model’s adaptability to highly complex tasks. Trade off is, potentially impacting the model’s adaptability to highly complex tasks.</p>
+<blockquote>
+<p><em>我觉得神还缺少某些某些东西，只要不存在与之相对的东西。————吕西安</em></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/11/LLM-Deployment-on-Android-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bingwanxing">
+      <meta itemprop="description" content="Computer Sceince and Phylosiphy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bingwanxing's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/10/11/LLM-Deployment-on-Android-1/" class="post-title-link" itemprop="url">On-device LLM Deployment-1</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2024-10-11 22:00:00" itemprop="dateCreated datePublished" datetime="2024-10-11T22:00:00+08:00">2024-10-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-10-26 19:33:16" itemprop="dateModified" datetime="2024-10-26T19:33:16+08:00">2024-10-26</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>535</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Tried some tutorial about how to deploy a model on Android,but I got lost.Here is the process.</p>
+<p>At first,I wanted to change the type of model to <a target="_blank" rel="noopener" href="http://TFlite.It">TFlite.It</a> is not so easy.</p>
+<p>And then,I asked a guy online for some sugggestions.He told me I can use onnx framework and so on,no need for changing the type of <a target="_blank" rel="noopener" href="http://model.So">model.So</a> I began to learn some something about onnx and tried to use it,finding the framework hard to work.</p>
+<p>Eventually,I tried to deploy some tiny models(like CV) following the tutorial online.</p>
+<p>Anyways,this week’s exploration is such a chaos.But this week’s exploration gives me a lot of exprience and it’s necessary.</p>
+<blockquote>
+<p><em>没有生活的的绝望就没有对生活的爱。————加谬</em></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/10/HELLO%20WORLD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bingwanxing">
+      <meta itemprop="description" content="Computer Sceince and Phylosiphy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bingwanxing's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/10/10/HELLO%20WORLD/" class="post-title-link" itemprop="url">HELLO WORLD</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2024-10-10 01:25:38" itemprop="dateCreated datePublished" datetime="2024-10-10T01:25:38+08:00">2024-10-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-10-21 19:48:00" itemprop="dateModified" datetime="2024-10-21T19:48:00+08:00">2024-10-21</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>161</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>引言：</p>
+<p>悠古的回响寥寥，夏娃亚当偷尝禁果的欢欣仍刺激着无数人，<br>
+时间流过，我看不见神，<br>
+胸中依然感到青春的震荡，<br>
+沐浴着新生的水，<br>
+“HELLO WORLD”</p>
+<p>This blog will contain my code stuff and learning process…and maybe more.</p>
+<p>这个博客会包含我的代码相关和学习历程…也许还有别的。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Bingwanxing</p>
+  <div class="site-description" itemprop="description">Computer Sceince and Phylosiphy</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bingwanxing</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">16k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">29 mins.</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

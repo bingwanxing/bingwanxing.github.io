@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Data Process 1.after checking the data file,I found that the keyword and location column is NaN.Therefore,I fill “unkown” to replace NaN. data_train[&#x27;keyword&#x27;] &#x3D; data_train[&#x27;keyword&amp;#x2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The-first-kaggle-experience-update">
+<meta property="og:url" content="http://example.com/2025/03/19/The-first-kaggle-experience-update/index.html">
+<meta property="og:site_name" content="Bingwanxing&#39;s Blog">
+<meta property="og:description" content="Data Process 1.after checking the data file,I found that the keyword and location column is NaN.Therefore,I fill “unkown” to replace NaN. data_train[&#x27;keyword&#x27;] &#x3D; data_train[&#x27;keyword&amp;#x2">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-03-19T07:54:58.000Z">
+<meta property="article:modified_time" content="2025-03-19T12:26:16.000Z">
+<meta property="article:author" content="Bingwanxing">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2025/03/19/The-first-kaggle-experience-update/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>The-first-kaggle-experience-update | Bingwanxing's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Bingwanxing's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Diversity is essential to happiness</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-literature">
+
+    <a href="/literature/" rel="section"><i class="fa fa-book fa-fw"></i>literature</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/19/The-first-kaggle-experience-update/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bingwanxing">
+      <meta itemprop="description" content="Computer Sceince and Phylosiphy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bingwanxing's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          The-first-kaggle-experience-update
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-03-19 15:54:58 / Modified: 20:26:16" itemprop="dateCreated datePublished" datetime="2025-03-19T15:54:58+08:00">2025-03-19</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>5.2k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>9 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="data-process">Data Process</h2>
+<p>1.after checking the data file,I found that the keyword and location column is NaN.Therefore,I fill “unkown” to replace NaN.</p>
+<div class="highlight"><pre class="code"><code>data_train[<span class="hljs-string">&#x27;keyword&#x27;</span>] = data_train[<span class="hljs-string">&#x27;keyword&#x27;</span>].fillna(<span class="hljs-string">&#x27;uknown_keyword&#x27;</span>)
+data_train[<span class="hljs-string">&#x27;location&#x27;</span>] = data_train[<span class="hljs-string">&#x27;location&#x27;</span>].fillna(<span class="hljs-string">&#x27;uknown_location&#x27;</span>)
+</code></pre></div>
+<p>2.I use Pandas to combine the keyword,location,and text columns of each row in the dataset into a single string,and stores these strings in a list.</p>
+<div class="highlight"><pre class="code"><code>corpus = data_train.apply(<span class="hljs-keyword">lambda</span> row:<span class="hljs-string">f&quot;keyword:<span class="hljs-subst">&#123;row[<span class="hljs-string">&#x27;keyword&#x27;</span>]&#125;</span> | location:<span class="hljs-subst">&#123;row[<span class="hljs-string">&#x27;location&#x27;</span>]&#125;</span> | text: <span class="hljs-subst">&#123;row[<span class="hljs-string">&#x27;text&#x27;</span>]&#125;</span>&quot;</span>,axis=<span class="hljs-number">1</span>).tolist()
+</code></pre></div>
+<p>3.I use BertTokenizer to tokenize and preprocessing the list.</p>
+<div class="highlight"><pre class="code"><code>max_len = <span class="hljs-number">0</span>
+<span class="hljs-keyword">for</span> sent <span class="hljs-keyword">in</span> corpus:
+    <span class="hljs-comment"># 将文本分词，并添加 `[CLS]` 和 `[SEP]` 符号</span>
+    input_ids = tokenizer.encode(sent, add_special_tokens=<span class="hljs-literal">True</span>)
+    max_len = <span class="hljs-built_in">max</span>(max_len, <span class="hljs-built_in">len</span>(input_ids))
+    
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Max sentence length: &#x27;</span>, max_len)
+
+max_len = <span class="hljs-number">0</span>
+<span class="hljs-keyword">for</span> sent <span class="hljs-keyword">in</span> corpuss:
+    input_ids = tokenizer.encode(sent, add_special_tokens=<span class="hljs-literal">True</span>)
+    max_len = <span class="hljs-built_in">max</span>(max_len, <span class="hljs-built_in">len</span>(input_ids))
+    
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Max sentence length: &#x27;</span>, max_len)
+
+input_ids = []
+attention_masks = []
+
+<span class="hljs-keyword">for</span> sent <span class="hljs-keyword">in</span> corpus:
+    X_bert = tokenizer.encode_plus(
+        sent,
+        add_special_tokens = <span class="hljs-literal">True</span>,
+        max_length = <span class="hljs-number">128</span>,
+        pad_to_max_length = <span class="hljs-literal">True</span>,
+        return_attention_mask = <span class="hljs-literal">True</span>,
+        return_tensors = <span class="hljs-string">&#x27;pt&#x27;</span>,
+    )
+    input_ids.append(X_bert[<span class="hljs-string">&#x27;input_ids&#x27;</span>])
+    attention_masks.append(X_bert[<span class="hljs-string">&#x27;attention_mask&#x27;</span>])
+
+input_ids = torch.cat(input_ids,dim=<span class="hljs-number">0</span>)
+attention_masks = torch.cat(attention_masks,dim=<span class="hljs-number">0</span>)
+labels = torch.tensor(y, dtype=torch.long)
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Original: &#x27;</span>, corpus[<span class="hljs-number">0</span>])
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Token IDs:&#x27;</span>, input_ids[<span class="hljs-number">0</span>])
+
+input_idss = []
+attention_maskss = []
+
+<span class="hljs-keyword">for</span> sent <span class="hljs-keyword">in</span> corpuss:
+    encoded_dicts = tokenizer.encode_plus(
+                        sent,                      
+                        add_special_tokens = <span class="hljs-literal">True</span>, 
+                        max_length = <span class="hljs-number">128</span>,           
+                        pad_to_max_length = <span class="hljs-literal">True</span>,
+                        return_attention_mask = <span class="hljs-literal">True</span>,   
+                        return_tensors = <span class="hljs-string">&#x27;pt&#x27;</span>,     
+                   )
+    input_idss.append(encoded_dicts[<span class="hljs-string">&#x27;input_ids&#x27;</span>])
+    attention_maskss.append(encoded_dicts[<span class="hljs-string">&#x27;attention_mask&#x27;</span>])
+
+input_idss = torch.cat(input_idss, dim=<span class="hljs-number">0</span>)
+attention_maskss = torch.cat(attention_maskss, dim=<span class="hljs-number">0</span>)
+</code></pre></div>
+<p>4.I use pytorch Dataset to transform the tokenized corpus and corpuss to a dataset used in BERT.</p>
+<div class="highlight"><pre class="code"><code><span class="hljs-keyword">from</span> torch.utils.data <span class="hljs-keyword">import</span> TensorDataset
+
+dataset = TensorDataset(input_ids, attention_masks, labels)
+datasets = TensorDataset(input_idss, attention_maskss)<span class="hljs-comment">#dataset for test doesn&#x27;t include labels</span>
+</code></pre></div>
+<h2 id="model-train">Model Train</h2>
+<p>I choose BERT and set</p>
+<div class="highlight"><pre class="code"><code>optimizer = AdamW(model.parameters(),
+                 lr = <span class="hljs-number">2e-5</span>,
+                 eps = <span class="hljs-number">1e-8</span>
+                 )
+
+<span class="hljs-keyword">from</span> transformers <span class="hljs-keyword">import</span> get_linear_schedule_with_warmup
+
+epochs = <span class="hljs-number">2</span>
+
+total_steps = <span class="hljs-built_in">len</span>(train_dataloader) * epochs
+
+scheduler = get_linear_schedule_with_warmup(optimizer,
+                                           num_warmup_steps = <span class="hljs-number">0</span>,
+                                           num_training_steps = total_steps)
+</code></pre></div>
+<p>Then,I conduct training in small batches</p>
+<div class="highlight"><pre class="code"><code>device = torch.device(<span class="hljs-string">&#x27;cuda&#x27;</span> <span class="hljs-keyword">if</span> torch.cuda.is_available() <span class="hljs-keyword">else</span> <span class="hljs-string">&#x27;cpu&#x27;</span>)
+
+seed_val = <span class="hljs-number">42</span>
+
+random.seed(seed_val)
+np.random.seed(seed_val)
+torch.manual_seed(seed_val)
+torch.cuda.manual_seed_all(seed_val)
+
+<span class="hljs-comment"># 存储训练和评估的 loss、准确率、训练时长等统计指标, </span>
+training_stats = []
+
+total_t0 = time.time()
+
+<span class="hljs-keyword">for</span> epoch_i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, epochs):
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;======== Epoch &#123;:&#125; / &#123;:&#125; ========&#x27;</span>.<span class="hljs-built_in">format</span>(epoch_i + <span class="hljs-number">1</span>, epochs))
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Training...&#x27;</span>)
+
+    <span class="hljs-comment"># 统计单次 epoch 的训练时间</span>
+    t0 = time.time()
+
+    <span class="hljs-comment"># 重置每次 epoch 的训练总 loss</span>
+    total_train_loss = <span class="hljs-number">0</span>
+
+    <span class="hljs-comment"># 将模型设置为训练模式。这里并不是调用训练接口的意思</span>
+    model.train()
+
+    <span class="hljs-comment"># 训练集小批量迭代</span>
+    <span class="hljs-keyword">for</span> step, batch <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(train_dataloader):
+
+        <span class="hljs-comment"># 每经过40次迭代，就输出进度信息</span>
+        <span class="hljs-keyword">if</span> step % <span class="hljs-number">40</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> step == <span class="hljs-number">0</span>:
+            elapsed = format_time(time.time() - t0)
+            <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;  Batch &#123;:&gt;5,&#125;  of  &#123;:&gt;5,&#125;.    Elapsed: &#123;:&#125;.&#x27;</span>.<span class="hljs-built_in">format</span>(step, <span class="hljs-built_in">len</span>(train_dataloader), elapsed))
+
+        b_input_ids = batch[<span class="hljs-number">0</span>].to(device)
+        b_input_mask = batch[<span class="hljs-number">1</span>].to(device)
+        b_labels = batch[<span class="hljs-number">2</span>].to(device)
+        <span class="hljs-comment"># print(b_input_ids.shape)  # 应为 (batch_size, max_length)</span>
+        <span class="hljs-comment"># print(b_input_mask.shape) # 同上</span>
+        <span class="hljs-comment"># print(b_labels.shape)     # 应为 (batch_size,)</span>
+
+        model.zero_grad()<span class="hljs-comment">#每次计算梯度前将其清零，因为pytorch梯度是累加的</span>
+    
+        <span class="hljs-comment">#前向</span>
+        <span class="hljs-comment"># loss, logits = model(b_input_ids, </span>
+        <span class="hljs-comment">#                          token_type_ids=None, </span>
+        <span class="hljs-comment">#                          attention_mask=b_input_mask, </span>
+        <span class="hljs-comment">#                          labels=b_labels)</span>
+    
+        outputs = model(
+            input_ids=b_input_ids,
+            attention_mask=b_input_mask,
+            labels=b_labels  <span class="hljs-comment"># 确保传递了 labels</span>
+        )
+        
+        <span class="hljs-comment"># 从 outputs 中提取 loss 和 logits</span>
+        loss = outputs.loss  <span class="hljs-comment"># 直接访问 loss 属性</span>
+        logits = outputs.logits
+    
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;模型返回的 loss:&quot;</span>, loss.item())
+    
+        <span class="hljs-comment"># 累加 loss</span>
+        total_train_loss += loss.item()
+    
+        <span class="hljs-comment"># 反向传播</span>
+        loss.backward()
+    
+        <span class="hljs-comment"># 梯度裁剪，避免出现梯度爆炸情况</span>
+        torch.nn.utils.clip_grad_norm_(model.parameters(), <span class="hljs-number">1.0</span>)
+    
+        <span class="hljs-comment"># 更新参数</span>
+        optimizer.step()
+    
+        <span class="hljs-comment"># 更新学习率</span>
+        scheduler.step()
+
+    <span class="hljs-comment"># 平均训练误差</span>
+    avg_train_loss = total_train_loss / <span class="hljs-built_in">len</span>(train_dataloader)            
+    
+    <span class="hljs-comment"># 单次 epoch 的训练时长</span>
+    training_time = format_time(time.time() - t0)
+</code></pre></div>
+<h2 id="model-prediction">Model Prediction</h2>
+<p>I use model.eval to get the prediction result</p>
+<div class="highlight"><pre class="code"><code>model.<span class="hljs-built_in">eval</span>()
+
+<span class="hljs-comment"># Tracking variables </span>
+predictions , true_labels = [], []
+
+<span class="hljs-comment"># 预测</span>
+<span class="hljs-keyword">for</span> batch <span class="hljs-keyword">in</span> test_dataloader:
+  <span class="hljs-comment"># 将数据加载到 gpu 中</span>
+  batch = <span class="hljs-built_in">tuple</span>(t.to(device) <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> batch)
+  b_input_ids, b_input_mask = batch
+  
+  <span class="hljs-comment"># 不需要计算梯度</span>
+  <span class="hljs-keyword">with</span> torch.no_grad():
+      <span class="hljs-comment"># 前向传播，获取预测结果</span>
+      outputs = model(b_input_ids,attention_mask=b_input_mask)
+
+  logits = outputs.logits
+
+  <span class="hljs-comment"># 将结果加载到 cpu 中</span>
+  batch_logits = logits.detach().cpu().numpy()
+  
+  <span class="hljs-comment"># 存储预测结果和 labels</span>
+  predictions.append(batch_logits)
+
+flat_predictions = np.concatenate(predictions, axis=<span class="hljs-number">0</span>)
+predicted_labels = np.argmax(flat_predictions, axis=<span class="hljs-number">1</span>)
+
+</code></pre></div>
+<p><strong>Why?</strong></p>
+<p>This chanllenge is a classification problem,and BERT has these suitable features:<br>
+1.Superior Understanding of Context from Both Directions;<br>
+2.Effectiveness in Pre-training and Fine-tuning;What we need to do is to add an untrained neuronal layer at the end, and then train a new model to complete our classification task;<br>
+3.Deep Contextual Analysis;<br>
+4.Versatility Across Multiple Tasks</p>
+<h2 id="limitation">Limitation</h2>
+<p>Long Training Time:I only trained for 2 epochs,but it took 10941.0s.</p>
+<h2 id="to-do">TO DO</h2>
+<p>1.Increase the train epochs;<br>
+2.Try other models or methods;<br>
+3.Add error blog.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/02/26/The-first-kaggle-experience/" rel="prev" title="'The-first-kaggle-experience'">
+      <i class="fa fa-chevron-left"></i> 'The-first-kaggle-experience'
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/11/07/git-guide/" rel="next" title="git-guide">
+      git-guide <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#data-process"><span class="nav-number">1.</span> <span class="nav-text">Data Process</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#model-train"><span class="nav-number">2.</span> <span class="nav-text">Model Train</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#model-prediction"><span class="nav-number">3.</span> <span class="nav-text">Model Prediction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#limitation"><span class="nav-number">4.</span> <span class="nav-text">Limitation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#to-do"><span class="nav-number">5.</span> <span class="nav-text">TO DO</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Bingwanxing</p>
+  <div class="site-description" itemprop="description">Computer Sceince and Phylosiphy</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2026</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bingwanxing</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">16k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">29 mins.</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
